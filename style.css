@@ -1,0 +1,20 @@
+
+*{padding: 0;
+    margin: 0;
+}body{
+    height: 100vh;
+background-color:rgb(210, 210, 210);
+}
+Header{
+ display: flex;
+ justify-content: center;
+ background-color: rgb(0, 150, 244);
+ padding: 1rem;
+}
+.Headertext{
+    font-size: 2rem;
+    color: rgb(255, 255, 255);
+    font-family: 'Inter', sans-serif;
+font-weight:800;
+
+}
