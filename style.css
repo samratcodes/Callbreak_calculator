@@ -1,6 +1,7 @@
 
 *{padding: 0;
     margin: 0;
+      font-family: 'Inter', sans-serif;
 }body{
     height: 100vh;
 background-color:rgb(210, 210, 210);
@@ -14,7 +15,70 @@ Header{
 .Headertext{
     font-size: 2rem;
     color: rgb(255, 255, 255);
-    font-family: 'Inter', sans-serif;
 font-weight:800;
 
+}
+form{
+    display: flex;
+    align-items: center;
+    
+}
+input{
+    margin:0rem 1rem;
+    height: 4rem;
+    width: 10rem;
+    background-color: rgb(8, 177, 255);
+    border: none;
+    border-radius:2rem;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    transition: 500ms;
+}
+input:hover{
+    background-color: rgb(157, 171, 171);
+    border: none;
+}
+input:focus{
+    border-radius:1rem;
+     background-color: rgb(202, 220, 220);
+}
+
+
+.user{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+    color: beige;
+    font-weight: 700;
+    font-size: 1rem;
+}
+.expectedinput,.Achievedinput{
+    display: flex;
+     color: rgb(187, 181, 181);
+     padding: 1rem 0rem;
+      background-color: aliceblue;
+      justify-content: center;
+      border-bottom: 1px solid black;
+}
+form{
+    padding: 1rem 0rem;
+}
+label{
+    color: rgb(30, 25, 34);
+}
+.expectedpoints , .Achievedpoints{
+    font-weight: bold;
+    padding:1rem  2rem;
+    font-size: 2rem;  
+}
+button{
+    width: 5rem;
+    height: 3rem;
+    color: rgb(136, 146, 146);
+    font-size: 1rem;
+    border-radius: 1rem;
+    border: 1px solid rgb(163, 162, 162);
 }
