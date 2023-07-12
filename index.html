@@ -19,22 +19,22 @@
      <div class="expectedpoints">
         Expected Points:
      </div>
-    <form >
+    <form class="form1">
        <div class="user1 user" >
         <label for="user1">User1:</label>
         <input type="number" name="user1" id="user1">
         </div>
         <div class="user2 user">
          <label for="user2">User2:</label>
-        <input type="number" name="user2" id="user2">
+        <input type="number" name="user2" id="user2" value="0">
         </div>
          <div class="user3 user">
          <label for="user3">User3:</label>
-        <input type="number" name="user3" id="user3">
+        <input type="number" name="user3" id="user3" value="0">
         </div>
          <div class="user4 user">
          <label for="user4">User4:</label>
-        <input type="number" name="user4" id="user4">
+        <input type="number" name="user4" id="user4" value="0">
         </div>
         <button type="submit">Submit</button>
     </form>
@@ -43,22 +43,22 @@
      <div class="Achievedpoints">
           Achieved points:
      </div>
-    <form >
+  <form class="form2">
        <div class="user1 user" >
         <label for="user1">User1:</label>
-        <input type="number" name="user1" id="user1">
+        <input type="number" name="user1" id="auser1" value="0">
         </div>
         <div class="user2 user">
          <label for="user2">User2:</label>
-        <input type="number" name="user2" id="user2">
+        <input type="number" name="user2" id="auser2" value="0">
         </div>
          <div class="user3 user">
          <label for="user3">User3:</label>
-        <input type="number" name="user3" id="user3">
+        <input type="number" name="user3" id="auser3" value="0">
         </div>
          <div class="user4 user">
          <label for="user4">User4:</label>
-        <input type="number" name="user4" id="user4">
+        <input type="number" name="user4" id="auser4" value="0">
         </div>
         <button type="submit">Submit</button>
     </form>
@@ -66,8 +66,10 @@
    </div>
    <div class="pointstable">
     <table>
+       <h1 class="scoretext">Score table:</h1>
         <thead>
-         <tr>
+         <tr class="Thead">
+          <th>Games</th>
             <th>User1</th>
              <th>User2</th>
               <th>User3</th>
@@ -75,45 +77,67 @@
          </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr class="tbody1 tbody">
+              <th>Game1</th>
                 <th>0</th>
                 <th>0</th>
                 <th>0</th>
                 <th>0</th>
             </tr>
-              <tr>
+              <tr class="tbody2 tbody">
+                 <th>Game2</th>
                 <th>0</th>
                 <th>0</th>
                 <th>0</th>
                 <th>0</th>
             </tr>
-              <tr>
+              <tr class="tbody3 tbody">
+                 <th>Game3</th>
                 <th>0</th>
                 <th>0</th>
                 <th>0</th>
                 <th>0</th>
             </tr>
-              <tr>
+              <tr class="tbody4 tbody">
+                 <th>Game4</th>
                 <th>0</th>
                 <th>0</th>
                 <th>0</th>
                 <th>0</th>
             </tr>
-              <tr>
-                <th>0</th>
-                <th>0</th>
-                <th>0</th>
-                <th>0</th>
-            </tr>
-              <tr>
-                <th>0</th>
-                <th>0</th>
-                <th>0</th>
-                <th>0</th>
-            </tr>
+            
         </tbody>
+        <tfoot>
+            <tr class="tbody5 tbody">
+                 <th>Total</th>
+                <th>0</th>
+                <th>0</th>
+                <th>0</th>
+                <th>0</th>
+            </tr>
+              </tfoot>
+                <tfoot>
+              <tr class="tbody6 tbody">
+                 <th>Final</th>
+                <th>0</th>
+                <th>0</th>
+                <th>0</th>
+                <th>0</th>
+            </tr>
+             <tr class="tbody6 tbody">
+                 <th>Winners</th>
+                <th>1st</th>
+                <th>2nd</th>
+                <th>3rd</th>
+                <th>4th</th>
+            </tr>
+        </tfoot>
     </table>
    </div>
+   <h1 class="cuser1 hidden">Congratulations to the winner User1</h1>
+   <h1 class="cuser2 hidden ">Congratulations to the winner User2</h1>
+   <h1 class="cuser3 hidden">Congratulations to the winner User3</h1>
+   <h1 class="cuser4 hidden">Congratulations to the winner User4</h1>
    </div>
     <script src="script.js"></script>
 </body>
