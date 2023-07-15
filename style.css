@@ -155,4 +155,11 @@ color: rgb(32, 35, 34);
 .user{
     margin-left: 0.4rem;
 }
+button{
+    margin-left: 0.5rem;
+    width: 3rem;
+    height: 2rem;
+    font-size: 0.8rem;
+}
+   
 }
