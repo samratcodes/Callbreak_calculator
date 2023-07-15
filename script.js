@@ -19,6 +19,7 @@ let user2points = [];
 let user3points = [];
 let user4points = [];
 let gamenumber = 1;
+let winner =[];
 
 const push =function(gamenumber){
   user1 = document.querySelector(`.user1-p${gamenumber}`);
@@ -47,15 +48,48 @@ else if(gamenumber==5){
 else if (gamenumber===6){
  user1.textContent =
   sum(user1points) + converted(expecteduser1.value, achieveduswer1.value);
+  winner.push( sum(user1points) + converted(expecteduser1.value, achieveduswer1.value))
+
  user2.textContent =
   sum(user2points)+converted(expecteduser2.value, achieveduswer2.value) ; 
+winner.push( sum(user2points)+converted(expecteduser2.value, achieveduswer2.value))
+
  user3.textContent =
    sum(user3points) + converted(expecteduser3.value, achieveduswer3.value);
+winner.push(sum(user3points) + converted(expecteduser3.value, achieveduswer3.value))
+
  user4.textContent =
    sum(user4points) + converted(expecteduser4.value, achieveduswer4.value); 
+  winner.push( sum(user4points) + converted(expecteduser4.value, achieveduswer4.value) )
   
+let result = findPositions(winner);
+finalwinner(result)
+
 }
 }
+const finalwinner =function(data){
+for ( let i=0 ;i<data.length;i++){
+     document.querySelector(`.user${i+1}-pp`).textContent= data[i]
+     if(data[i]===1){
+      
+     }
+}
+}
+
+ function findPositions(array) {
+  let sortedArray = array.slice().sort(function (a, b) {
+    return b - a;
+  });
+  let positions = [];
+
+  for (let i = 0; i < array.length; i++) {
+    let position = sortedArray.indexOf(array[i]) + 1;
+    positions.push(position);
+  }
+
+  return positions;
+}
+
 
 const sum= function(data){
    let sum =0;
