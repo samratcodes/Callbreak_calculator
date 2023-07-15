@@ -4,7 +4,7 @@
       font-family: 'Inter', sans-serif;
 }body{
     height: 100vh;
-      background-color: aliceblue;;
+   background-color: rgb(237, 237, 237);
 }
 Header{
  display: flex;
@@ -119,7 +119,7 @@ color: rgb(32, 35, 34);
     padding: 1rem;
    
 }
-.cuser1 ,.cuser2,.cuser3 ,.cuser4{
+.cuser{
     background-color: rgb(202, 65, 65);
     display: flex;
     justify-content: center;
@@ -128,4 +128,28 @@ color: rgb(32, 35, 34);
 }
 .hidden{
     display: none;
+}
+@media ( max-width:900px){
+    input{
+        height: 1rem;
+    width: 3rem;
+    font-size: 0.9rem;
+
+    }
+    th{
+    height: 2rem;
+    width: 4rem;}
+   .expectedpoints , .Achievedpoints{
+    font-weight: bold;
+    padding:1rem  0.5rem;
+    font-size: 1rem;  
+}
+    th{
+    height: 2rem;
+    width: 5rem;
+    font-size:1rem ;
+}
+.user{
+    margin-left: 0.4rem;
+}
 }

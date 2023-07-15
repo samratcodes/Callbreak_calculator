@@ -70,8 +70,10 @@ finalwinner(result)
 const finalwinner =function(data){
 for ( let i=0 ;i<data.length;i++){
      document.querySelector(`.user${i+1}-pp`).textContent= data[i]
-     if(data[i]===1){
-      
+     if (data[i]===1){
+      console.log(data[i]===1)
+     let ley = document.getElementById(`cuser${i+1}`);
+     ley.classList.remove('hidden')
      }
 }
 }
