@@ -130,6 +130,9 @@ color: rgb(32, 35, 34);
     display: none;
 }
 @media ( max-width:900px){
+    body{
+        padding: 2px;
+    }
     input{
         height: 2rem;
     width: 3rem;
