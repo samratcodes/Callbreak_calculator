@@ -131,7 +131,7 @@ color: rgb(32, 35, 34);
 }
 @media ( max-width:900px){
     input{
-        height: 1rem;
+        height: 2rem;
     width: 3rem;
     font-size: 0.9rem;
 
