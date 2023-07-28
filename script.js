@@ -17,13 +17,16 @@ let fixedBtn = document.querySelector(".fixed-input-btn");
 let fixedEle = document.getElementsByClassName("fixed");
 let unFixedEle = document.getElementsByClassName("unfixed");
 let state = "unfixed";
+const popupEl = document.querySelector(".popup");
 
 let user1points = [];
 let user2points = [];
 let user3points = [];
 let user4points = [];
+let achievedpoint = [];
+let achievedpointSum;
 let playerName = [];
-let gamenumber = 1;
+let gamenumber = 0;
 let winner = [];
 
 const clearInputField = function () {
@@ -37,6 +40,20 @@ const clearInputField = function () {
   achieveduswer4.value = "";
 };
 
+const cheackFormValidation = function () {
+  achievedpoint.push(achieveduswer1.value);
+  achievedpoint.push(achieveduswer2.value);
+  achievedpoint.push(achieveduswer3.value);
+  achievedpoint.push(achieveduswer4.value);
+
+  achievedpointSum = achievedpoint.reduce(
+    (acc, point) => acc + Number(point),
+    0
+  );
+  if (achievedpointSum === 13) return true;
+  return false;
+};
+
 const handelFixed = function (fixed = true) {
   if (fixed) {
     state = "fixed";
@@ -44,7 +61,6 @@ const handelFixed = function (fixed = true) {
     expecteduser2.classList.add("fixed");
     expecteduser3.classList.add("fixed");
     expecteduser4.classList.add("fixed");
-
     Array.from(fixedEle).forEach((element) => {
       element.disabled = true;
     });
@@ -61,12 +77,12 @@ const handelFixed = function (fixed = true) {
   }
 };
 
-const push = function (gamenumber) {
-  user1 = document.querySelector(`.user1-p${gamenumber}`);
-  user2 = document.querySelector(`.user2-p${gamenumber}`);
-  user3 = document.querySelector(`.user3-p${gamenumber}`);
-  user4 = document.querySelector(`.user4-p${gamenumber}`);
-  if (gamenumber <= 4) {
+const push = function (gn) {
+  user1 = document.querySelector(`.user1-p${gn}`);
+  user2 = document.querySelector(`.user2-p${gn}`);
+  user3 = document.querySelector(`.user3-p${gn}`);
+  user4 = document.querySelector(`.user4-p${gn}`);
+  if (gn <= 4 || gn === 6) {
     user1.textContent = converted(expecteduser1.value, achieveduswer1.value);
     user1points.push(converted(expecteduser1.value, achieveduswer1.value));
 
@@ -78,56 +94,61 @@ const push = function (gamenumber) {
 
     user4.textContent = converted(expecteduser4.value, achieveduswer4.value);
     user4points.push(converted(expecteduser4.value, achieveduswer4.value));
-  } else if (gamenumber == 5) {
-    user1.textContent = sum(user1points);
-    user2.textContent = sum(user2points);
-    user3.textContent = sum(user3points);
-    user4.textContent = sum(user4points);
-  } else if (gamenumber === 6) {
-    user1.textContent =
-      sum(user1points) + converted(expecteduser1.value, achieveduswer1.value);
-    winner.push(
-      sum(user1points) + converted(expecteduser1.value, achieveduswer1.value)
-    );
 
-    user2.textContent =
-      sum(user2points) + converted(expecteduser2.value, achieveduswer2.value);
-    winner.push(
-      sum(user2points) + converted(expecteduser2.value, achieveduswer2.value)
-    );
+    if (gn === 4 || gn === 6) {
+      gamenumber++;
+      push(gamenumber);
+    }
+  }
+  if (gn === 5 || gn === 7) {
+    setTimeout(() => {
+      user1.textContent = sum(user1points);
+      user2.textContent = sum(user2points);
+      user3.textContent = sum(user3points);
+      user4.textContent = sum(user4points);
+      if (gn === 7) {
+        winner.push(user1.textContent);
+        winner.push(user2.textContent);
+        winner.push(user3.textContent);
+        winner.push(user4.textContent);
+        gamenumber++;
+        push(gamenumber);
+      }
+    }, 200);
+  }
+  if (gn === 8) {
+    console.log("c");
 
-    user3.textContent =
-      sum(user3points) + converted(expecteduser3.value, achieveduswer3.value);
-    winner.push(
-      sum(user3points) + converted(expecteduser3.value, achieveduswer3.value)
-    );
-
-    user4.textContent =
-      sum(user4points) + converted(expecteduser4.value, achieveduswer4.value);
-    winner.push(
-      sum(user4points) + converted(expecteduser4.value, achieveduswer4.value)
-    );
-
-    let result = findPositions(winner);
+    const result = findPositions(winner);
+    console.log(result);
     finalwinner(result);
   }
 };
 
 const finalwinner = function (data) {
+  let winnerName = "";
+  popupEl.firstElementChild.textContent = "";
   for (let i = 0; i < data.length; i++) {
     document.querySelector(`.user${i + 1}-pp`).textContent = data[i];
     if (data[i] === 1) {
-      console.log(data[i] === 1);
-      let ley = document.getElementById(`cuser${i + 1}`);
-      ley.classList.remove("hidden");
+      if (!playerName[i]) {
+        playerName[i] = `user${i + 1}`;
+      }
+      winnerName += `${playerName[i]} ,`;
     }
   }
+  popupEl.firstElementChild.textContent = `${winnerName} Won The Game `;
+  popupEl.style.top = "30%";
+  setTimeout(() => {
+    popupEl.style.top = "-10%";
+  }, 2000);
 };
 
 function findPositions(array) {
   let sortedArray = array.slice().sort(function (a, b) {
     return b - a;
   });
+  console.log(sortedArray, array);
   let positions = [];
 
   for (let i = 0; i < array.length; i++) {
@@ -143,28 +164,37 @@ const sum = function (data) {
   for (let i = 0; i < data.length; i++) {
     sum = sum + data[i];
   }
-  return sum;
+  return parseFloat(sum.toFixed(2));
 };
 
 const converted = function (expected, achieved) {
   expected = Number(expected);
   achieved = Number(achieved);
   if (expected > achieved) {
-    let ans = expected - expected * 2;
+    let ans = -expected;
     return ans;
-  } else if (expected <= achieved) {
+  } else {
     let ans = expected + (achieved - expected) / 10;
     return ans;
   }
 };
+
 const form = document.querySelector("form");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  push(gamenumber);
-  clearInputField();
-  gamenumber++;
-  handelFixed(false);
+  if (cheackFormValidation()) {
+    gamenumber++;
+    push(gamenumber);
+    clearInputField();
+
+    handelFixed(false);
+    achievedpoint = [];
+  } else {
+    achievedpoint = [];
+
+    alert(`Achieved points is only ${achievedpointSum} , It must be 13.`);
+  }
 });
 
 fixedBtn.addEventListener("click", function () {
@@ -186,7 +216,6 @@ const displayInUi = function () {
       label.textContent = playerName[index - 4];
     }
   });
-
   headerLabels.forEach((headerLabel, index) => {
     headerLabel.textContent = playerName[index];
   });
@@ -194,7 +223,12 @@ const displayInUi = function () {
 
 const askPlayerName = function () {
   const players = prompt("Enter Player Name Separated by space");
-  playerName = players.split(" ");
+  if (!players) return;
+  playerName = players
+    .split(" ")
+    .map(
+      (playername) => playername.charAt(0).toUpperCase() + playername.slice(1)
+    );
   displayInUi();
 };
 askPlayerName();

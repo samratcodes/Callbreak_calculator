@@ -46,7 +46,7 @@ input {
 }
 
 .fixed {
-  background-color: rgb(232, 157, 157);
+  background-color: rgb(234, 69, 69);
 }
 
 input:hover {
@@ -145,7 +145,7 @@ th {
   height: 4rem;
   width: 12rem;
   background-color: rgb(104, 196, 239);
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   transition: 500ms;
   overflow: hidden;
 }
@@ -157,27 +157,35 @@ tfoot {
   border-radius: 1rem;
 }
 
-.tbody5 th {
-  background-color: rgb(151, 154, 156);
-  color: rgb(26, 28, 28);
-}
 .scoretext {
+  max-width: 80rem;
+  margin: 0 auto;
   background-color: rgb(104, 196, 239);
   display: flex;
   justify-content: center;
   padding: 1rem;
 }
-.cuser {
-  background-color: rgb(202, 65, 65);
-  display: flex;
-  justify-content: center;
+
+.popup {
+  opacity: 0.8;
+  position: absolute;
+  top: -10%;
+  width: 100%;
   padding: 1rem;
-  color: aliceblue;
-}
-.hidden {
-  display: none;
+  font-size: 1.8rem;
+  font-weight: bold;
+  transition: 0.5s;
 }
 
+.winner-popup {
+  width: fit-content;
+  display: block;
+  margin: 0 auto;
+  background-color: rgb(224, 42, 78);
+  color: rgb(243, 239, 239);
+  padding: 2rem;
+  text-align: center;
+}
 @media (max-width: 700px) {
   html {
     font-size: 50%;
