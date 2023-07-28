@@ -1,165 +1,185 @@
-
-*{padding: 0;
-    margin: 0;
-      font-family: 'Inter', sans-serif;
-}body{
-    height: 100vh;
-   background-color: rgb(237, 237, 237);
-}
-Header{
- display: flex;
- justify-content: center;
- background-color: rgb(0, 150, 244);
- padding: 1rem;
- position: sticky;
- top: 0px;
- bottom: 1%;
-}
-.Headertext{
-    font-size: 2rem;
-    color: rgb(255, 255, 255);
-font-weight:800;
-
-}
-form{
-    display: flex;
-    align-items: center;
-    
-}
-input{
-  
-    height: 4rem;
-    width: 10rem;
-    background-color: rgb(8, 177, 255);
-    border: none;
-    border-radius:2rem;
-    font-size: 2rem;
-    display: flex;
-    justify-content: center;
-    transition: 500ms;
-}
-input:hover{
-    background-color: rgb(157, 171, 171);
-    border: none;
-}
-input:focus{
-    border-radius:1rem;
-     background-color: rgb(202, 220, 220);
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
 }
 
-.user{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-left: 1rem;
-    color: beige;
-    font-weight: 700;
-    font-size: 1rem;
-}
-.expectedinput,.Achievedinput{
-    display: flex;
-     color: rgb(187, 181, 181);
-     padding: 1rem 0rem;
-      justify-content: center;
-      align-items: center;
-      border-bottom: 1px solid rgb(164, 162, 162);
-}
-form{
-    padding: 1rem 0rem;
-}
-label{
-    color: rgb(30, 25, 34);
-}
-.expectedpoints , .Achievedpoints{
-    font-weight: bold;
-    padding:1rem  2rem;
-    font-size: 2rem;  
-
-}
-button{
-    margin-left: 1rem;
-    width: 5rem;
-    height: 3rem;
-    color: rgb(136, 146, 146);
-    font-size: 1rem;
-    border-radius: 1rem;
-    border: 1px solid rgb(163, 162, 162);
-}
-table{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
+html {
+  font-size: 62.5%;
 }
 
-th{
-    height: 4rem;
-    width: 10rem;
-    background-color: rgb(104, 196, 239);
-    font-size: 2rem;
-    transition: 500ms; 
-   overflow: hidden;
+body {
+  background-color: rgb(237, 237, 237);
 }
 
-tbody,thead,tfoot{
-    border: 2px solid rgb(154, 151, 151);
-    border-radius: 1rem;
+Header {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(0, 150, 244);
+  padding: 1rem;
+  z-index: 99;
+  position: sticky;
+  top: 0;
+}
+.Headertext {
+  font-size: 3.2rem;
+  color: rgb(255, 255, 255);
+  font-weight: 700;
 }
 
-.tbody5 th{ 
-     background-color: rgb(87, 123, 139);
-color: rgb(32, 35, 34);
+.maininput {
+  margin: 0 auto;
+  max-width: 70rem;
 }
-.scoretext{
-    background-color: rgb(104, 196, 239);
-    display: flex;
-    justify-content: center;
-    padding: 1rem;
-   
-}
-.cuser{
-    background-color: rgb(202, 65, 65);
-    display: flex;
-    justify-content: center;
-    padding: 1rem;
-    color: aliceblue;
-}
-.hidden{
-    display: none;
-}
-@media ( max-width:900px){
-    body{
-        padding: 2px;
-    }
-    input{
-        height: 2rem;
-    width: 3rem;
-    font-size: 0.9rem;
 
-    }
-    th{
-    height: 2rem;
-    width: 4rem;}
-   .expectedpoints , .Achievedpoints{
-    font-weight: bold;
-    padding:1rem  0.5rem;
-    font-size: 1rem;  
+input {
+  height: 4rem;
+  width: 8rem;
+  background-color: rgb(155, 222, 253);
+  border-radius: 1.2rem;
+  font-size: 2.4rem;
+  justify-content: center;
+  text-align: center;
+  transition: 500ms;
+  border: none;
 }
-    th{
-    height: 2rem;
-    width: 5rem;
-    font-size:1rem ;
+
+.fixed {
+  background-color: rgb(232, 157, 157);
 }
-.user{
-    margin-left: 0.4rem;
+
+input:hover {
+  outline: none;
+  background-color: rgb(157, 171, 171);
 }
-button{
-    margin-left: 0.5rem;
-    width: 3rem;
-    height: 2rem;
-    font-size: 0.8rem;
+
+.user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1rem;
+  color: beige;
+  font-weight: 700;
+  font-size: 1.6rem;
 }
-   
+
+.Achievedinput {
+  position: relative;
+}
+
+.expectedinput,
+.Achievedinput {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  color: rgb(65, 167, 215);
+  padding: 1rem 0;
+  border-bottom: 1px solid rgb(164, 162, 162);
+}
+
+label {
+  color: rgb(69, 68, 70);
+}
+
+.expectedpoints,
+.Achievedpoints {
+  font-weight: bold;
+  padding: 1rem;
+  font-size: 2.4rem;
+}
+
+.action {
+  padding: 2rem;
+  text-align: center;
+}
+
+.btn {
+  border: none;
+  font-size: 1.6rem;
+  padding: 0.8rem 1.2rem;
+}
+
+.btn-submit--form {
+  background-color: #4c93e0;
+  color: white;
+  transition: 0.3s;
+  box-shadow: 10px 5px 7px rgba(0, 0, 0, 0.4);
+}
+.btn-submit--form:hover {
+  background-color: #295f98;
+  transform: translateY(-1px);
+}
+.btn-submit--form:active {
+  box-shadow: 7px 3px 7px rgba(0, 0, 0, 0.3);
+  transform: translateY(1px);
+}
+
+.fixed-input-btn {
+  color: #f7f7f7;
+  background-color: rgb(109, 222, 71);
+  margin-top: 2rem;
+  box-shadow: 7px 3px 10px rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+}
+
+.fixed-input-btn:hover {
+  background-color: rgb(77, 165, 85);
+}
+
+.fixed-input-btn:active {
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+table {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+th {
+  height: 4rem;
+  width: 12rem;
+  background-color: rgb(104, 196, 239);
+  font-size: 1.8rem;
+  transition: 500ms;
+  overflow: hidden;
+}
+
+tbody,
+thead,
+tfoot {
+  border: 2px solid rgb(154, 151, 151);
+  border-radius: 1rem;
+}
+
+.tbody5 th {
+  background-color: rgb(151, 154, 156);
+  color: rgb(26, 28, 28);
+}
+.scoretext {
+  background-color: rgb(104, 196, 239);
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+.cuser {
+  background-color: rgb(202, 65, 65);
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  color: aliceblue;
+}
+.hidden {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  html {
+    font-size: 50%;
+  }
 }
