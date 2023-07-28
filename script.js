@@ -114,13 +114,10 @@ const push = function (gn) {
         gamenumber++;
         push(gamenumber);
       }
-    }, 200);
+    }, 400);
   }
   if (gn === 8) {
-    console.log("c");
-
     const result = findPositions(winner);
-    console.log(result);
     finalwinner(result);
   }
 };
@@ -130,30 +127,39 @@ const finalwinner = function (data) {
   popupEl.firstElementChild.textContent = "";
   for (let i = 0; i < data.length; i++) {
     document.querySelector(`.user${i + 1}-pp`).textContent = data[i];
-    if (data[i] === 1) {
+    if (data[i] === "winner") {
       if (!playerName[i]) {
-        playerName[i] = `user${i + 1}`;
+        playerName[i] = `User${i + 1} `;
       }
-      winnerName += `${playerName[i]} ,`;
+      winnerName += `${playerName[i]}`;
     }
   }
-  popupEl.firstElementChild.textContent = `${winnerName} Won The Game `;
-  popupEl.style.top = "30%";
+  console.log(winnerName);
+  popupEl.firstElementChild.textContent = `${winnerName} Won The Game`;
+  popupEl.style.top = "90%";
   setTimeout(() => {
-    popupEl.style.top = "-10%";
-  }, 2000);
+    popupEl.style.position = "relative";
+    document.querySelector(".message").style.display = "block";
+  }, 1500);
 };
 
 function findPositions(array) {
   let sortedArray = array.slice().sort(function (a, b) {
     return b - a;
   });
-  console.log(sortedArray, array);
   let positions = [];
 
   for (let i = 0; i < array.length; i++) {
     let position = sortedArray.indexOf(array[i]) + 1;
-    positions.push(position);
+    if (position === 1) {
+      positions.push("winner");
+    } else if (position === 2) {
+      positions.push("second");
+    } else if (position === 3) {
+      positions.push("third");
+    } else {
+      positions.push("forth");
+    }
   }
 
   return positions;
@@ -193,7 +199,7 @@ form.addEventListener("submit", (event) => {
   } else {
     achievedpoint = [];
 
-    alert(`Achieved points is only ${achievedpointSum} , It must be 13.`);
+    alert(`Achieved points sum is only ${achievedpointSum} , It must be 13.`);
   }
 });
 
