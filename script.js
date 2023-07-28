@@ -134,7 +134,6 @@ const finalwinner = function (data) {
       winnerName += `${playerName[i]}`;
     }
   }
-  console.log(winnerName);
   popupEl.firstElementChild.textContent = `${winnerName} Won The Game`;
   popupEl.style.top = "90%";
   setTimeout(() => {
