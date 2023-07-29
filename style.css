@@ -35,9 +35,9 @@ Header {
 
 input {
   height: 4rem;
-  width: 8rem;
+  width: 7rem;
   background-color: rgb(155, 222, 253);
-  border-radius: 1.2rem;
+  border-radius: 6px;
   font-size: 1.8rem;
   justify-content: center;
   text-align: center;
@@ -46,12 +46,14 @@ input {
 }
 
 .fixed {
-  background-color: rgb(234, 69, 69);
+  background-color: rgb(69, 23, 23);
+  color: whitesmoke;
 }
 
 input:hover {
   outline: none;
-  background-color: rgb(157, 171, 171);
+  color: white;
+  background-color: rgb(65, 130, 130);
 }
 
 .user {
@@ -104,33 +106,39 @@ label {
 }
 
 .btn-submit--form {
-  background-color: #4c93e0;
+  background-color: #14b6f6;
   color: white;
   transition: 0.3s;
   box-shadow: 10px 5px 7px rgba(0, 0, 0, 0.4);
 }
 .btn-submit--form:hover {
-  background-color: #295f98;
+  background-color: #36f50b;
   transform: translateY(-1px);
 }
 .btn-submit--form:active {
-  box-shadow: 7px 3px 7px rgba(0, 0, 0, 0.3);
+  box-shadow: 7px 3px 7px rgba(207, 33, 33, 0.3);
   transform: translateY(1px);
 }
 
 .fixed-input-btn {
   color: #f7f7f7;
-  background-color: rgb(109, 222, 71);
+  background-color: rgb(23, 147, 46);
   margin-top: 2rem;
-  box-shadow: 7px 3px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.5);
   transition: 0.3s;
 }
 
+.fixeed-input-btn,
+.fixedbtn {
+  background-color: rgb(56, 9, 9);
+}
+
 .fixed-input-btn:hover {
-  background-color: rgb(77, 165, 85);
+  background-color: rgb(10, 10, 10);
 }
 
 .fixed-input-btn:active {
+  background-color: rgb(190, 119, 119);
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -157,7 +165,6 @@ th {
     rgb(133, 217, 247),
     rgb(242, 244, 245)
   );
-
   color: #1801e0;
 }
 
