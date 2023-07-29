@@ -61,6 +61,9 @@ const handelFixed = function (fixed = true) {
     expecteduser2.classList.add("fixed");
     expecteduser3.classList.add("fixed");
     expecteduser4.classList.add("fixed");
+    fixedBtn.classList.add("fixedbtn");
+    fixedBtn.textContent = "Unfixed";
+
     Array.from(fixedEle).forEach((element) => {
       element.disabled = true;
     });
@@ -70,6 +73,8 @@ const handelFixed = function (fixed = true) {
     expecteduser2.classList.replace("fixed", "unfixed");
     expecteduser3.classList.replace("fixed", "unfixed");
     expecteduser4.classList.replace("fixed", "unfixed");
+    fixedBtn.classList.remove("fixedbtn");
+    fixedBtn.textContent = "fixed";
 
     Array.from(unFixedEle).forEach((element) => {
       element.disabled = false;
@@ -188,16 +193,15 @@ const form = document.querySelector("form");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
+  if (gamenumber >= 8) return 0;
   if (cheackFormValidation()) {
     gamenumber++;
     push(gamenumber);
     clearInputField();
-
     handelFixed(false);
     achievedpoint = [];
   } else {
     achievedpoint = [];
-
     alert(`Achieved points sum is only ${achievedpointSum} , It must be 13.`);
   }
 });
