@@ -224,11 +224,17 @@ tfoot {
 .hidden {
   display: none;
 }
-
+.pop-title {
+  color: rgba(22, 1, 245, 0.918);
+  text-align: center;
+  letter-spacing: 1px;
+  width: 20rem;
+  margin-bottom: 2.4rem;
+}
 .popup-askusername {
   position: fixed;
   z-index: 100;
-  padding: 2.4rem 4.5rem;
+  padding: 1.2rem;
   background-color: white;
   gap: 1rem;
   right: 50%;
@@ -238,7 +244,7 @@ tfoot {
 }
 
 .popup-askusername input {
-  width: 14rem;
+  width: 13rem;
 }
 
 .overlay {
@@ -254,7 +260,7 @@ tfoot {
 
 #username-button {
   margin-top: 1.2rem;
-  width: 10rem;
+  width: 8rem;
 }
 
 .usersnamess {
