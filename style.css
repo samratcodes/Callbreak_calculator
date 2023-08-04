@@ -273,3 +273,9 @@ header form input{
     bottom: 40%;
     right: 20%;}
 }
+@media (max-width: 500px) {
+    .usersnamess{
+     position: fixed ;
+    bottom: 20%;
+    right: 20%;}
+}
