@@ -18,7 +18,7 @@ Header {
   justify-content: center;
   background-color: rgb(0, 150, 244);
   padding: 1rem;
-  z-index: 99;
+  z-index: 90;
   position: sticky;
   top: 0;
 }
@@ -221,61 +221,57 @@ tfoot {
   padding: 2rem;
   text-align: center;
 }
-.hidden{
-    display: none;
+.hidden {
+  display: none;
 }
-.usersnamess{
-     position: fixed ;
-    bottom: 35%;
-    right: 40%;
-    border-radius: 10%;
+.pop-title {
+  color: rgba(22, 1, 245, 0.918);
+  text-align: center;
+  letter-spacing: 1px;
+  width: 20rem;
+  margin-bottom: 2.4rem;
 }
-header form{
-    background-color: aliceblue;
-    display: flex;
-    flex-direction: column; 
-    justify-content: space-around; 
-    align-items: center;
-    width: 30rem;
-    height: max-content;
-}
-header form input{
-    margin: 2rem;
-    width: 15rem;
+.popup-askusername {
+  position: fixed;
+  z-index: 100;
+  padding: 1.2rem;
+  background-color: white;
+  gap: 1rem;
+  right: 50%;
+  top: 50%;
+  transform: translate(50%, -50%);
+  border-radius: 9px;
 }
 
-.usersnamess label {
-    font-size: 2rem !important;
-    font-weight: bold !important;
-    color: white !important; /* Change to a visible color */
-    padding: 0.5rem; /* Adjust padding for better text visibility */
+.popup-askusername input {
+  width: 13rem;
 }
 
 .overlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(3px);
-  z-index: 5;
-} 
+  z-index: 99;
+}
+
+#username-button {
+  margin-top: 1.2rem;
+  width: 8rem;
+}
+
+.usersnamess {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
 @media (max-width: 700px) {
   html {
     font-size: 50%;
   }
-  header form{
-    width: 30rem;
-  }
-   .usersnamess{
-     position: fixed ;
-    bottom: 40%;
-    right: 20%;}
-}
-@media (max-width: 500px) {
-    .usersnamess{
-     position: fixed ;
-    bottom: 20%;
-    right: 20%;}
 }
