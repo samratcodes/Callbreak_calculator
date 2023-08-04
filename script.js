@@ -7,6 +7,20 @@ let achieveduswer1 = document.getElementById("auser1");
 let achieveduswer2 = document.getElementById("auser2");
 let achieveduswer3 = document.getElementById("auser3");
 let achieveduswer4 = document.getElementById("auser4");
+  
+const userNames = document.querySelectorAll(
+    '.usersnamess input[type="text"]'
+  );
+
+
+let username1 =document.querySelector('#user1name');
+let username2 = document.querySelector("#user2name");
+let username3 = document.querySelector("#user3name");
+let username4 = document.querySelector("#user4name");
+
+let usernameform = document.querySelector(".usersnamess");
+let usernamebutton = document.querySelector("#username-button");
+let overlay = document.querySelector('.overlay');
 
 let user1 = document.querySelector(".user1-p1");
 let user2 = document.querySelector(".user2-p1");
@@ -189,7 +203,7 @@ const converted = function (expected, achieved) {
   }
 };
 
-const form = document.querySelector("form");
+const form = document.querySelector(".form1");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -214,7 +228,7 @@ fixedBtn.addEventListener("click", function () {
   }
 });
 
-const displayInUi = function () {
+const displayInUi = function (playerName) {
   const labels = Array.from(document.getElementsByTagName("label"));
   const headerLabels = document.querySelectorAll(".Thead th:not(:first-child)");
 
@@ -230,14 +244,28 @@ const displayInUi = function () {
   });
 };
 
-const askPlayerName = function () {
-  const players = prompt("Enter Player Name Separated by space");
-  if (!players) return;
-  playerName = players
-    .split(" ")
-    .map(
-      (playername) => playername.charAt(0).toUpperCase() + playername.slice(1)
-    );
-  displayInUi();
+const askPlayerName = function () { 
+  usernamebutton.addEventListener("click", function (e) {
+    e.preventDefault()
+
+    setTimeout(function(){ overlay.classList.add("hidden");
+    usernameform.classList.add("hidden"),1000})
+     
+      playerName = [
+        username1.value,
+        username2.value,
+        username3.value,
+        username4.value
+      ];
+      playerName=
+        playerName.map(
+          (playername) =>
+            playername.charAt(0).toUpperCase()+ playername.slice(1)
+        )
+      displayInUi(playerName);
+});
+ 
+
 };
+
 askPlayerName();
