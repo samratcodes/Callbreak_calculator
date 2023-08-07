@@ -42,6 +42,12 @@ let playerName = [];
 let gamenumber = 0;
 let winner = [];
 
+//some audio
+const namesSubmitSound = new Audio("./asset/name_submit.mp3");
+const alertSound = new Audio("./asset/alert.mp3");
+const pointSubmitSucessSound = new Audio("./asset/point_submit.mp3");
+const winSound = new Audio("./asset/win.mp3");
+
 const clearInputField = function () {
   expecteduser1.value = "";
   expecteduser2.value = "";
@@ -152,6 +158,7 @@ const finalwinner = function (data) {
       winnerName += `${playerName[i]}`;
     }
   }
+  winSound.play();
   popupEl.firstElementChild.textContent = `${winnerName} Won The Game`;
   popupEl.style.top = "90%";
   setTimeout(() => {
@@ -205,15 +212,16 @@ const converted = function (expected, achieved) {
 const form = document.querySelector(".form1");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-
   if (gamenumber >= 8) return 0;
   if (cheackFormValidation()) {
+    pointSubmitSucessSound.play();
     gamenumber++;
     push(gamenumber);
     clearInputField();
     handelFixed(false);
     achievedpoint = [];
   } else {
+    alertSound.play();
     achievedpoint = [];
     alert(`Achieved points sum is only ${achievedpointSum} , It must be 13.`);
   }
@@ -246,18 +254,17 @@ const displayInUi = function (playerName) {
 const askPlayerName = function () {
   usernamebutton.addEventListener("click", function (e) {
     e.preventDefault();
+    namesSubmitSound.play();
     setTimeout(function () {
       overlay.classList.add("hidden");
       usernameform.classList.add("hidden"), 1000;
     });
-
     playerName = [
       username1.value,
       username2.value,
       username3.value,
       username4.value,
     ];
-
     playerName = playerName.map((playername, i) => {
       if (playername !== "") {
         return playername.charAt(0).toUpperCase() + playername.slice(1);
