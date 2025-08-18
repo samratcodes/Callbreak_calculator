@@ -69,7 +69,9 @@ const cheackFormValidation = function () {
     (acc, point) => acc + Number(point),
     0
   );
-  if (achievedpointSum === 13) return true;
+   if (achievedpointSum >= 0 && achievedpointSum <= 13) {
+    return true;
+  }
   return false;
 };
 
